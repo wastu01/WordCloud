@@ -3,6 +3,9 @@
 
 ## 摘要
 
+練習如何斷詞：
+https://github.com/wastu01/Jieba-ChinsesWord
+
 >文章內容給 Jieba 斷詞，並分析文字產生文字雲，
 可推測其文章重要字詞以及核心內容
 
