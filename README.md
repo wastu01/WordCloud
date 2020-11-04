@@ -50,3 +50,7 @@ from collections import Counter
 >
 > <span>Photo by <a href="https://unsplash.com/@thevernon?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Vernon Raineil Cenzon</a> on <a href="https://unsplash.com/s/photos/taiwan?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
+延伸應用：
+
+[線上爬取使用者想查的關鍵字製作成文字雲](http://bit.ly/Mr01Medium)
+
