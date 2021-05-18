@@ -1,10 +1,12 @@
 # Python Word Cloud「文字雲」文字分析
 
+#### 備註：更新至 python3.9 版本使用 counter 需加入
+#### from collections import Counter
 
 ## 摘要
 
 練習如何斷詞：
-https://github.com/wastu01/Jieba-ChinsesWord
+[https://github.com/wastu01/Jieba-ChinsesWord](https://github.com/wastu01/Jieba-ChinsesWord)
 
 >文章內容給 Jieba 斷詞，並分析文字產生文字雲，
 可推測其文章重要字詞以及核心內容
@@ -24,15 +26,15 @@ https://github.com/wastu01/Jieba-ChinsesWord
 #### 執行畫面  [點我查看更多](http://bit.ly/01的文字雲分析)
 
 
->載入相關套件
+>載入相關套件(requirement)
 
 ```python
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
-from PIL import Image
 import jieba
+import matplotlib.pyplot as plt
 import numpy as np
-from collections import Counter
+from PIL import Image
+from wordcloud import WordCloud, ImageColorGenerator
+from scipy.ndimage import gaussian_gradient_magnitude
 
 ```
 > Mac OS X 系统文字路徑
