@@ -26,7 +26,9 @@
 
 ### 文字雲輸出內容：
 
-#### 執行畫面  [點我查看更多](http://bit.ly/01的文字雲分析)
+#### 執行畫面 
+
+![](https://static.coderbridge.com/img/mrwang01/664b2d9563f44e33b566a15c0ca5e5a3.png)
 
 
 >載入相關套件(requirement)
