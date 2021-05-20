@@ -2,15 +2,16 @@
 # coding: utf-8
 
 import jieba
-import matplotlib.pyplot as plt
+import pandas as pd
 import numpy as np
 from PIL import Image
+import matplotlib.pyplot as plt
 from collections import Counter
 from wordcloud import WordCloud, ImageColorGenerator
 from scipy.ndimage import gaussian_gradient_magnitude
 
 
-file = open('txt/ARarticle.txt', "r", encoding="utf-8")
+file = open('txt/study.txt', "r", encoding="utf-8")
 text = file.read()
 
 jieba.set_dictionary('dict.txt.big.txt')
@@ -24,12 +25,33 @@ for sentence in jieba.cut(text):
 
 dicition = Counter(terms)
 
-# print(type(dicition))
 # print(Counter(terms))
-with open('outfile', 'w') as w:
-    w.write("The word frequency is " + str(dicition))
+# data = {
+#     'name', 'home'
+# }
+#
+# student_df = pd.DataFrame(data)
+#
+# print(student_df)
+#測試 pandas格式
+
+artDf = pd.DataFrame.from_dict(dicition, orient='index', columns=['詞頻'])
+Frequence = artDf.sort_values(by=['詞頻'], ascending=False).head(50)
+print(Frequence)
+print(artDf.shape)
+# print(artDf.dtypes)
+
+
+#
+# artDf = pd.DataFrame(terms, columns=['詞頻'])
+# artDf.sort_values(by=['詞頻'], ascending=False)
+
+
+
+# with open('outfile', 'w') as w:
+#     w.write("The word frequency is " + str(dicition))
 font = 'SourceHanSansTW-Regular.otf'
-icon = "color"
+icon = "Color-Hunt-Palette"
 icon_path = "img/%s.png" % icon
 
 mask_color = np.array(Image.open(icon_path))
@@ -54,7 +76,7 @@ wordcloud.recolor(color_func=image_colors)
 plt.figure(figsize=(10, 10), facecolor='w')
 plt.imshow(wordcloud, interpolation="bilinear")
 plt.axis("off")
-plt.show()
+# plt.show()
 
 # plt.savefig("render/DCT111.png")
 # wordcloud.to_file("render/NTCU.png")

@@ -1,8 +1,11 @@
 # Python Word Cloud「文字雲」文字分析
 
-#### 備註：更新至 python3.9 版本使用 counter 需加入
+#### 更新：
+更新至 python3.9 版本使用 counter 需加入
 #### from collections import Counter
 
+#### pandas 排序次數問題：
+[transform-a-counter-object-into-a-pandas-dataframe](https://stackoverflow.com/questions/31111032/transform-a-counter-object-into-a-pandas-dataframe)
 ## 摘要
 
 練習如何斷詞：
