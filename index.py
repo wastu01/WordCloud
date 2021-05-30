@@ -11,7 +11,7 @@ from wordcloud import WordCloud, ImageColorGenerator
 from scipy.ndimage import gaussian_gradient_magnitude
 
 
-file = open('txt/study.txt', "r", encoding="utf-8")
+file = open('txt/covid-19.txt', "r", encoding="utf-8")
 text = file.read()
 
 jieba.set_dictionary('dict.txt.big.txt')
@@ -51,7 +51,7 @@ print(artDf.shape)
 # with open('outfile', 'w') as w:
 #     w.write("The word frequency is " + str(dicition))
 font = 'SourceHanSansTW-Regular.otf'
-icon = "Color-Hunt-Palette"
+icon = "cloud"
 icon_path = "img/%s.png" % icon
 
 mask_color = np.array(Image.open(icon_path))
@@ -59,13 +59,13 @@ mask_color = mask_color[::3, ::3]
 mask_image = mask_color.copy()
 mask_image[mask_image.sum(axis=2) == 0] = 255
 
-edges = np.mean([gaussian_gradient_magnitude(mask_color[:, :, i]/255., 2) for i in range(3)], axis=0)
+edges = np.mean([gaussian_gradient_magnitude(mask_color[:, :, i]/255., 2) for i in range(1)], axis=0)
 mask_image[edges > .08] = 255
 
 wordcloud = WordCloud(max_words=2000,
                       mask=mask_color,
                       font_path=font,
-                      max_font_size=65,
+                      max_font_size=45,
                       margin=1,
                       relative_scaling=0)
 
@@ -76,8 +76,8 @@ wordcloud.recolor(color_func=image_colors)
 plt.figure(figsize=(10, 10), facecolor='w')
 plt.imshow(wordcloud, interpolation="bilinear")
 plt.axis("off")
-# plt.show()
+plt.show()
 
 # plt.savefig("render/DCT111.png")
-# wordcloud.to_file("render/NTCU.png")
+wordcloud.to_file("render/covid-gov.png")
 file.close()
